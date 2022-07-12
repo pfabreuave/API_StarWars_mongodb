@@ -8,6 +8,8 @@ const app = express()
 
 const mongoose = require('mongoose')
 
+const cors = require('cors')
+
 
 app.use(
     express.urlencoded({
@@ -16,7 +18,8 @@ app.use(
   )
 
   app.use(express.json())
-
+  app.use(cors());
+  
 // Rutas 
 const personRoutes = require('./routes/personRoutes')
 
@@ -37,6 +40,6 @@ mongoose
   )
   .then(() => {
     console.log('Conectou ao banco!')
-    app.listen(3000)
+    app.listen(4000)
   })
   
